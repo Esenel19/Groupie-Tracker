@@ -1,0 +1,22 @@
+.page {
+  display: block !important;
+    padding-top: 20vh !important;
+    height: 80vh !important;
+}
+
+.page h1 {
+  text-align: center;
+  font-size: 55px;
+}
+.page h2 {
+  height: 190px;
+  font-size: 35px;
+}
+.page p{
+    height: 190px;
+  font-size: 24px;
+}
+.page a {
+  color: blue;
+  text-decoration: underline blue;
+}

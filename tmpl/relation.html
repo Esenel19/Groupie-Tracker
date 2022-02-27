@@ -1,0 +1,63 @@
+{{define "relation"}}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groupie Tracker - Relation</title>
+    <link rel="shortcut icon" href="../assets/image/logo-GT.png" />
+    <link rel="stylesheet" href="../assets/css/relation.css" />
+  </head>
+  <body>
+    {{template "header"}}
+    <div class="page-relation">
+
+      <div class="all">
+        <div class="tit">
+          <div class="titles">
+          <div class="title">
+            <h1>Relation</h1>
+          </div>
+          <div class="subtitle">
+            <h2>Choose a city to see which artists perform at this location</h2>
+          </div>
+        </div>
+        </div>
+        
+        <div class="form-container">
+          <div class="input-form">
+            <form action="./Loc&date" method="GET">
+          <select name="loc" required>
+            <option value="" disabled selected>---Select a City---</option>
+            <option value="All Locations">All Locations</option>
+            {{range $index,$value := .}}
+              {{if eq $index 51}}
+                {{range $country, $valeur := .Relations.Countrystr}}
+                <optgroup label="{{$country}}">
+                  {{range $valeur}}
+                    <option value="{{.}}-{{$country}}">{{.}}</option>
+                  {{end}}
+                {{end}}
+              {{end}}
+            {{end}}
+          </select>
+          <button>Submit</button>
+        </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="background-image">
+        <img class="image1" src="https://i.pinimg.com/564x/26/9a/2b/269a2b78d8db88196a1c91d81fe82dfd.jpg">
+        <img class="image2" src="https://i.pinimg.com/564x/65/0e/e4/650ee475427480a89613670e031304aa.jpg">
+        <div class="back"></div>
+      </div>
+
+    </div>
+    {{template "footer"}}
+  </body>
+  <script>
+    document.getElementById("relation").classList.add("active")
+  </script>
+</html>
+{{end}}

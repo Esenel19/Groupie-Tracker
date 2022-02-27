@@ -1,0 +1,48 @@
+{{define "loc&date"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groupie Tracker</title>
+    <link rel="shortcut icon" href="../assets/image/logo-GT.png" />
+    <link rel="stylesheet" href="../assets/css/Loc&date.css" />
+  </head>
+  <body>
+    {{template "header"}}
+    <div class="page-locAndDate">
+      <div class="title">
+        <div class="the-title">
+          <h1>
+            Find what you're looking for here !
+          </h1>
+        </div>
+        <div class="the-subtitle">
+          <h2>
+            Click on the artist, on the city or on a date for further informations
+          </h2>
+        </div>
+      </div>
+
+      <div class="message">
+        <div>
+          La recherche effectuée n'a trouvé aucun resultat. 
+        </div>
+      </div>
+      
+
+      <button class="prev" id="prev">Previous Artist</button>
+      <div class="artist-container">
+        {{template "content-loc&date" .}}
+      </div>
+      <button class="next" id="next">Next Artist</button>
+    </div>
+    {{template "footer"}}
+  </body>
+  <script>
+    document.getElementById("relation").classList.add("active")
+  </script>
+  <script src="../assets/js/loc&date.js"></script>
+</html>
+{{end}}

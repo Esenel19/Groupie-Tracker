@@ -1,0 +1,71 @@
+body, * {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    color: black;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+.page {
+    background: #eee;
+    height: 950px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.artists-container {
+    height: 725px;
+    margin-top: 100px;
+    width: 1500px;
+}
+.all-artists {
+    height: 100%;
+}
+.artist-block {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.info-artist {
+    width: 600px;    
+    display: grid;
+}
+.name {
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.info-artist a {
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+}
+.name h1 {
+    font-family: fantasy;
+}
+.img {
+    display: flex;
+    align-items: center;
+    width: 450px;
+}
+.img-artist {
+    width: 370px;
+    height: 370px;
+    border-radius: 50%;
+    transition: 1s;
+}
+.img-artist:hover {
+    border-radius: 0%;
+    transition: 1s;
+}
+h2,p {
+    text-align: center;
+}
+h2 {
+    margin-top: 20px;
+}

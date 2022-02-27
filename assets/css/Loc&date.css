@@ -1,0 +1,138 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  color: black;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+.page-locAndDate {
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 70px;
+  background: #eee;
+}
+.title {
+  height: 130px;
+  padding-top: 50px;
+}
+.title div {
+  display: flex;
+  justify-content: center;
+}
+.the-title {
+  padding-bottom: 30px;
+}
+.artist-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 80px;
+}
+.artist-block {
+  border: solid 1px;
+  margin: 15px 0px 15px 0px;
+  padding: 30px;
+  width: 70%;
+  display: none;
+  border-radius: 20px;
+  background-color: white;
+  min-height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 31%;
+  min-height: 590px;
+}
+.loc-date {
+  padding: 10px;
+  border: solid 1px;
+  padding: 10px;
+  border: solid 1px;
+  margin: 25px;
+  width: 225px;
+  border-radius: 10px;
+  min-height: 90px;
+  background: #eee;
+}
+.name {
+  font-size: 35px;
+  text-align: center;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.artist-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.all-dates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.all-dates div {
+  padding: 5px 10px 0px 10px;
+}
+.loc {
+  text-align: center;
+  font-size: 25px;
+  font-style: italic;
+  min-height: 70px;
+}
+.name a{
+  color: black;
+    background: white;
+    border-radius: 10px;
+    border: solid 3px black;
+    padding: 7px;
+}
+.artist-infos {
+  min-height: 490px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev {
+  position: absolute;
+  top: 60%;
+  left: 69px;
+  width: 90px;
+  font-size: 20px;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.next {
+  position: absolute;
+  top: 60%;
+  right: 69px;
+  width: 73px;
+  font-size: 20px;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 10px;
+}
+.message {
+  display: none;
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+.message div {
+  width: 500px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  text-align: center;
+}

@@ -1,0 +1,70 @@
+{{define "locations"}}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groupie Tracker - Locations</title>
+    <link rel="shortcut icon" href="../assets/image/logo-GT.png" />
+    <link rel="stylesheet" href="../assets/css/locations.css" />
+  </head>
+  <body>
+    {{template "header"}}
+    <body>
+      <div class="page">
+        <div class="page-container">
+          <div class="titles">
+            <div class="title">
+              <h1>Locations</h1>
+            </div>
+            <div class="subtitle">
+              <h2>Choose a Country and an Artist to see where he played</h2>
+            </div>
+          </div>
+        </div>
+        <div class="country-container">
+          <div class="all-country">
+            <form action="/countryConcert" method="GET">
+              <div class="lists">
+                <!---------------------
+                  FORM FOR ARTIST NAME
+                 --------------------->
+                <p>I am looking for a concert of ...</p>
+                <select name="artist" required>
+                  <option value="" disabled selected>---Select an Artist---</option>
+                  <option value="All Artists">All Artists</option>
+                  <optgroup label="Artists">
+                    {{range .}}
+                    <option value="{{.Name}}">{{.Name}}</option>
+                    {{end}}
+                  </optgroup>
+                </select>
+                <!---------------------
+                  FORM FOR COUNTRY NAME
+                  --------------------->
+                  <p>in ...</p>
+                  <select name="country" id="country" required>
+                    <option value="" disabled selected>---Select a Country---</option>
+                    <option value="All Countries">All Countries</option>
+                    <optgroup label="Countries">
+              {{range $index, $value := .}}
+                {{if eq $index 51}} 
+                  {{range .Locations.AllLocations}}
+                    <option value="{{.}}">{{.}}</option>
+                  {{end}}
+                {{end}}
+              {{end}}
+            </select>
+          </div>
+          <div class="button">
+            <button>submit</button>
+          </div>
+          </form>
+          </div>
+        </div>
+      </div>
+      {{template "footer"}}
+  </body>
+  <script>document.getElementById("location").classList.add("active")</script>
+</html>
+{{end}}

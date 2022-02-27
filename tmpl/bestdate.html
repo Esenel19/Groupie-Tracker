@@ -1,0 +1,29 @@
+{{define "bestdate"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groupie Tracker - Best-Dates</title>
+    <link rel="shortcut icon" href="../assets/image/logo-GT.png" />
+    <link rel="stylesheet" href="../assets/css/bestdate.css" />
+</head>
+
+<body>
+    {{template "header"}}
+    <div class="page">
+        <div class="redirected" style="display: none;" id="redirected">
+            <div class="redirected-text"><p>No concert between the dates you choose !</p><p>You have been redirected with the dates from 01-01-1970 to 01-01-2022</p></div>
+        </div>
+        <div class="artists">
+            {{ $length := len .}}{{if gt $length 0}} {{range .}} {{$len := len .ConcertDates.Dates}} {{if gt $len 0}} {{template "content-bestdate" .}} {{end}} {{end}} {{else}}
+            <meta id="meta" http-equiv="Refresh"/> {{end}}
+        </div>
+    </div>
+    {{template "footer"}}
+</body>
+<script src="../assets/js/bestdate.js"></script>
+</html>
+{{end}}

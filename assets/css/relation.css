@@ -1,0 +1,111 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  color: black;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+.page-relation {
+  /* background-image: url(https://wallpaperaccess.com/full/2878.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+  padding-top: 15vh;
+  height: 85vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.form-container {
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-form {
+  padding: 50px;
+  align-items: center;
+  display: flex;
+  border-radius: 20px;
+  border: black 3px double;
+}
+
+button {
+  font-size: 15px;
+  height: 32px;
+  margin-left: -25px;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 6px;
+}
+
+select {
+  text-align-last: center;
+  background: transparent;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-transform: capitalize;
+  width: 250px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titles {
+  opacity: 0.95;
+  height: 200px;
+  display: grid;
+  width: 40%;
+}
+.subtitle h2 {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.tit {
+  width: 100vw;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image1 {
+  position: absolute;
+  top: 0;
+  left: 0;    
+  height: 100vh;
+  z-index: -1;
+  transform: translate(-95px, 20px);
+}
+
+.back {
+  height: 200vh;
+  width: 828px;
+  position: absolute;
+  top: -320px;
+  left: 585px;
+  transform: rotate(
+26deg
+) translate(-106px, 0px);
+  background: #ffe4e4;
+  z-index: -1;
+}
+
+.image2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 105vh;
+  z-index: -1;
+}

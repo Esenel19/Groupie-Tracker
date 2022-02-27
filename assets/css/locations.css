@@ -1,0 +1,106 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  color: black;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+.page {
+  background: #eee;
+  background-image: url(../image/mapWithPins.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.page-location {
+  margin-top: 60px;
+  height: 800px;
+}
+.page-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 30px;
+  text-align: center;
+}
+.titles {
+  border: solid 1px;
+  border-radius: 25px;
+  opacity: 0.95;
+  height: 200px;
+  display: grid;
+  width: 50%;
+  background: #eee;
+}
+.subtitle h2 {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.country-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 510px;
+  text-align: center;
+}
+.all-country {
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  border: solid 1px black;
+  padding: 25px;
+  border-radius: 25px;
+  background: #eee;
+  opacity: 0.95;
+}
+.all-country from {
+  height: 100%;
+}
+.all-country p {
+  margin: 15px;
+  font-size: 18px;
+}
+.lists {
+  height: 240px;
+}
+.map {
+  justify-content: center;
+  display: flex;
+}
+.world-map {
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  margin-top: 40px;
+}
+.world-map img {
+  border-radius: 25px;
+}
+.country-container select {
+  height: 40px;
+  width: 350px;
+  font-size: 20px;
+}
+.country-container button {
+  font-size: 20px;
+  width: 80px;
+  border-radius: 10px;
+  height: 40px;
+}
+.button {
+  display: flex;
+  justify-content: center;
+}
+.button button {
+  cursor: pointer;
+}
+input[type="text"],
+select {
+  text-align: center;
+  text-align-last: center;
+}

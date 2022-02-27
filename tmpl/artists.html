@@ -1,0 +1,81 @@
+<!-- 
+  PAGE ARTIST
+ -->
+{{define "artists"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groupie Tracker - Artists</title>
+    <link rel="shortcut icon" href="../assets/image/logo-GT.png" />
+    <link rel="stylesheet" href="../assets/css/groups.css" />
+  </head>
+  <body>
+    {{template "header"}}
+    <!--------------------
+            FORM 
+      ------------------->
+    <div class="formulaire">
+      <form action="/singleArtist" method="GET" onkeydown="return event.key != 'Enter';">
+        <input
+          id="inputArtists"
+          list="browsers"
+          name="searchArtist"
+          placeholder="Search by name..."
+          aria-label="Search through site content"
+          autocomplete="off"
+          required
+        />
+        <datalist id="browsers"></datalist>
+      </form>
+      <!---------------------
+              FORM
+       ------------------------>
+    </div>
+    <div class="artists-container">
+      <div class="all-artists" id="content">
+        {{range .}} {{template "artist" .}} {{end}}
+      </div>
+    </div>
+    {{template "footer"}}
+  </body>
+  <script src="../assets/js/artists.js"></script>
+</html>
+{{end}}
+
+
+<!-- 
+  PAGE SINGLE ARTIST
+ -->
+{{define "singleArtist"}}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../assets/image/logo-GT.png" />
+    <title>Groupie Tracker</title>
+    <link rel="stylesheet" href="../assets/css/singleArtist.css" />
+  </head>
+  <body>
+    {{template "header"}}
+    <div class="page">
+      <!-- si la longueur du tableau est > à 0 -->
+      {{ $length := len .}} {{if gt $length 0}}
+      <div class="artists-container">
+        <div class="all-artists" id="content">
+          {{range .}} {{template "content-singleArtist" .}} {{end}}
+        </div>
+      </div>
+      <!-- si la longueur du tableau est = à 0 -->
+      {{else}} {{template "not-found"}} {{end}}
+    </div>
+    {{template "footer"}}
+  </body>
+  <script>
+        document.getElementById("artists").classList.add("active")
+  </script>
+</html>
+{{end}}

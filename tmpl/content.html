@@ -1,0 +1,154 @@
+<!-- 
+    CONTENT POUR LA PAGE ARTISTE
+ -->
+{{define "artist"}}
+<div id="{{.Name}}" class="ArtistsName">
+  <form action="/singleArtist" method="GET">
+    <input type="hidden" name="idArtist" value="{{.Id}}" />
+    <div title="{{.Name}}" class="artist-block">
+      <button>
+        <img class="img-artist" src="{{.Image}}" />
+
+        <p style="font-family: monospace">{{.Name}}</p>
+      </button>
+    </div>
+  </form>
+  <!-- <script>
+    newOption = document.createElement("option");
+    newOption.value = "{{.Name}}";
+    document.getElementById("browsers").appendChild(newOption);
+  </script> -->
+</div>
+{{end}}
+
+<!-- 
+    CONTENT POUR LA PAGE SINGLE-ARTISTE
+ -->
+{{define "content-singleArtist"}}
+<div class="artist-block">
+  <div class="img">
+    <img class="img-artist" src="{{.Image}}" />
+  </div>
+  <div class="info-artist">
+    <div class="name">
+      <h1>{{.Name}}</h1>
+    </div>
+    <h2>Members :</h2>
+    {{range .Members}}<p>{{.}}</p>{{end}}
+    <h2>Creation Date :</h2>
+    <p>{{.CreationDate}}</p>
+    <h2>First Album :</h2>
+    <p>{{.FirstAlbum}}</p>
+    <h2>Location :</h2>
+    <a href="/countryConcert?artist={{.Name}}&country=All+Countries"
+      >See all his concert locations</a
+    >
+    <h2>Concert Dates :</h2>
+    <a
+      href="/bestdate?trip-start=1970-01-01&trip-end=2022-01-01&artist-date={{.Name}}"
+      >See all his concert dates</a
+    >
+    <h2>Relations :</h2>
+    <a href="/Loc&date?loc=All+Locations#{{.Id}}"
+      >See all his Locations / dates</a
+    >
+  </div>
+</div>
+{{end}}
+
+<!-- 
+    CONTENT POUR LA PAGE COUNTRYCONCERT
+ -->
+{{define "content-countryConcert"}}
+<div class="artist-block">
+  <div class="artist-border">
+    <div class="img">
+      <img class="img-artist" src="{{.Image}}" />
+    </div>
+    <div class="name">
+      <h1>{{.Name}}</h1>
+    </div>
+    <div class="more-info">
+      <a href="/singleArtist?searchArtist={{.Name}}"
+        >More information about {{.Name}}</a
+      >
+    </div>
+    <div class="number-of-map">
+      <p class="number">x</p>
+      <p>&nbsp;Concert(s) found</p>
+    </div>
+    <div class="show-hide-buttons">
+      <button class="show-map activate">Show maps</button>
+      <button class="hide-map">Hide maps</button>
+    </div>
+    <div class="info-artist">
+      <div class="all-maps" id="{{.Id}}">
+        {{range .Locations.Locations}}
+        <div class="maps">
+          <a href="/Loc&date?loc={{.}}">{{.}}</a>
+          <iframe
+            class="iframe"
+            width="600"
+            height="450"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCXZTli2HQUzZrYUgGschrkjgnxqhMLz4Q&q=concert,{{.}}">
+          </iframe>
+        </div>
+        {{end}}
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}
+
+<!-- 
+    CONTENT POUR LA PAGE BESTDATE
+ -->
+{{define "content-bestdate"}}
+<div class="artist">
+  <div class="image">
+    <a href="/singleArtist?searchArtist={{.Name}}">
+    <img class="img-artist" src="{{.Image}}"/></a>
+  </div>
+  <div class="name">
+    <a href="/singleArtist?searchArtist={{.Name}}">{{.Name}}</a>
+  </div>
+  <div class="dates-container">
+    <div class="all-dates">
+      {{range .ConcertDates.Dates}}
+      <div class="each-dates">
+        <a href="http://localhost:8080/bestdate?trip-start={{.}}&trip-end={{.}}&artist-date=All+Artists">{{.}}</a>  
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+{{end}}
+
+<!-- 
+    CONTENT POUR LA PAGE loc&date
+ -->
+{{define "content-loc&date"}} {{range .}}
+<div class="artist-block" id="{{.Name}}" style="background-image: url({{.Image}})">
+  <div class="name">
+    <a href="/singleArtist?searchArtist={{.Name}}">{{.Name}}</a>
+  </div>
+  <div class="artist-infos">
+    <div class="artist-info">
+      {{range $key, $value := .Relations.DatesLocations}}
+      <div class="loc-date">
+        <div class="loc">
+          <a href="/Loc&date?loc={{$key}}">{{$key}}</a>
+        </div>
+        <div class="all-dates">
+          {{range $value}}
+          <div><a href="http://localhost:8080/bestdate?trip-start={{.}}&trip-end={{.}}&artist-date=All+Artists">{{.}}</a></div>
+          {{end}}
+        </div>
+      </div>
+      {{end}}
+  </div>
+  </div>
+</div>
+{{end}} {{end}}
